@@ -3,13 +3,18 @@
 function LED1_On() {
 	alert("led on");
 	console.log("led on");
-	document.getElementById("sensor").innerHTML="led on";
-  
+	//document.getElementById("sensor").innerHTML="led on";
+	message = new Paho.MQTT.Message("ON");
+	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	client.send(message);
 }
 function LED1_Off(){	
 	alert("led off");
 	console.log("led off");
-	document.getElementById("sensor").innerHTML="led off";
+	//document.getElementById("sensor").innerHTML="led off";
+	message = new Paho.MQTT.Message("OFF");
+	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	client.send(message);
 }
 
 
@@ -63,5 +68,8 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
+	  document.getElementById("sensor").innerHTML=message.payloadString;
+	  
+	  
   }
   
