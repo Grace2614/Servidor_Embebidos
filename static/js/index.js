@@ -6,13 +6,11 @@ function LED1_On() {
 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	client.send(message);
 }
-//function LED1_Off(){	
-	//alert("led off");
-	//console.log("led off");
-	//document.getElementById("sensor").innerHTML="led off";
-	//message = new Paho.MQTT.Message("OFF");
-	//message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
-	//client.send(message);
+function LED1_Off(){	
+	console.log("led off");
+	message = new Paho.MQTT.Message("Apagado");
+	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	client.send(message);
 //}
 
 
