@@ -4,16 +4,16 @@ function LED1_On() {				//Crea una funciòn llamada LED1_ON
 	//alert("led on");			//Escribe un mensaje de alerta
 	console.log("led on");                  //Escribe un mensaje en la consola.
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-	message.destinationName = "grace.bonilla@unach.edu.ec/tema1"; //Destino del mensaje
+	message = new Paho.MQTT.Message("Encender");
+	message.destinationName = "grace.bonilla@unach.edu.ec/Led"; //Destino del mensaje
 	client.send(message);
 }
 function LED1_Off(){	
 	//alert("led off");			//Escribe un mensaje de alerta
 	console.log("led off");			//Escribe un mensaje en la consola.
 	//document.getElementById("sensor").innerHTML="led off";
-	message = new Paho.MQTT.Message("OFF");
-	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	message = new Paho.MQTT.Message("Apagar");
+	message.destinationName = "grace.bonilla@unach.edu.ec/Led";
 	client.send(message);
 }
 
@@ -46,9 +46,9 @@ function LED1_Off(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("grace.bonilla@unach.edu.ec/tema1");
+    client.subscribe("grace.bonilla@unach.edu.ec/Led");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+    message.destinationName = "grace.bonilla@unach.edu.ec/Led";
     client.send(message);
 	
   }
